@@ -9,24 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CATALOGO_GENERAL_DETALLE")
-public class GeneralCatalogDetail {
+@Table(name = "CATALOGO_GENERAL")
+public class GeneralCatalog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_CTD", nullable = false,updatable = false)
-    private String idCtd;
+    @Column(name = "ID_CTG", nullable = false,updatable = false,length = 2)
+    private String idCtg;
 
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "ID_CTG", referencedColumnName = "ID_CTG",nullable = false)
-    })
-    private GeneralCatalog idCtg;
-
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "ID_CCE", referencedColumnName = "ID_CCE",nullable = false)
-    })
-    private GeneralCatalog idCce;
+    @Id
+    @Column(name = "ID_CCE", nullable = false,updatable = false,length = 3)
+    private String idCce;
 
     @Column(name = "NOMBRE",nullable = false,length = 32)
     private String name;
